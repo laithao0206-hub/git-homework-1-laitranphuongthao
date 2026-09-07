@@ -1,0 +1,99 @@
+Part A Section 1
+mkdir ex3
+
+Part A Section 2
+cd ex3
+
+Part A Section 3
+mkdir dir1
+mkdir dir2
+
+Part A Section 4
+touch HelloWorld.txt
+cp HelloWorld.txt dir1/
+
+Part A Section 5
+cp -i HelloWorld.txt dir1/
+
+Part A Section 6
+mv HelloWorld.txt Hi.txt
+
+Part A Section 7
+mv Hi.txt dir2/
+
+
+Part B Section 1
+ln dir2/Hi.txt Hi-hard
+ln dir2/Hi.txt dir1/Hi-hard
+ln dir2/Hi.txt dir2/Hi-hard
+
+Part B Section 2
+ln dir2/Hi.txt Hi-sym
+
+Part B Section 3
+rm Hi-hard
+
+Part B Section 4
+rm dir2/Hi.txt
+
+Part B Section 5
+total 8
+  541 lrwxrwxrwx 1 root root   11 Sep  7 15:48 Hi-sym -> dir2/Hi.txt
+  837 drwxr-xr-x 2 root root 4096 Sep  7 15:40 dir1
+ 1118 drwxr-xr-x 2 root root 4096 Sep  7 15:51 dir2
+35256 -rw-r--r-- 1 root root    0 Sep  7 15:28 ex3.txt
+
+Part C Section 1
+ls -1 /bin /usr/bin | grep -v ':' | sort -u | wc -l
+922
+
+Part C Section 2
+ls -1 /bin /usr/bin | grep -v ':' | sort -u | grep "zip"
+bunzip2
+bzip2
+bzip2recover
+funzip
+gunzip
+gzip
+streamzip
+unzip
+unzipsfx
+zipdetails
+zipgrep
+zipinfo
+
+Part C Section 3
+head -n 5 file123.txt
+Dưới bóng hoàng hôn buông lỏng trên những ô cửa kính cũ kỹ của thành phố, thời gian dường như trôi chậm lại qua từng nhịp thở khẽ khàng của gió.
+Mùi hương dịu nhẹ của những đóa hoa dạ lào xộc thẳng vào khứu giác, gợi nhắc về một góc sân nhà đầy nắng và những buổi trưa hè oi ả thuở thơ ấu.
+Con đường nhỏ trước ngõ bắt đầu lên đèn, ánh vàng ấm áp hắt xuống mặt đường loang lổ sau cơn mưa chiều bất chợt.
+Có chiếc lá khô nào vừa rơi khẽ bên thềm, mang theo bao nỗi niềm ưu tư của một mùa cũ đã qua đi không trở lại.
+Tôi ngồi đây, lặng yên giữa dòng chảy hối hả của cuộc đời ngoài kia để lắng nghe tiếng lòng mình thổn thức.
+tail -n 5 file123.txt
+Có những buổi chiều chỉ muốn cuộn mình trong chiếc chăn ấm, đọc vài trang sách cũ và thả hồn trôi theo những giai điệu du dương của ký ức.
+Thiên nhiên luôn có cách chữa lành kỳ diệu cho những tâm hồn mỏi mệt bằng tiếng ve kêu, bằng sắc xanh của cỏ cây và bằng cả khoảng trời rộng lớn bao dung.
+Rồi mai này, khi dòng đời đưa đẩy mỗi người mỗi ngả, ta sẽ lại nhớ biết bao cái ôm siết chặt của những người thân yêu và cả ánh mắt rưng rưng ngày chia biệt.
+Đừng tiếc nuối những gì đã mất, bởi mỗi vết xước ta mang trên người chính là minh chứng cho thấy chúng ta đã dũng cảm sống hết mình.
+Hạnh phúc đôi khi rất đỗi giản đơn, nằm gọn trong m
+wc file123.txt
+32  988 5962 file123.txt
+
+Part C Section 4
+tee full_listing.txt
+
+Part D Section 1
+mkdir permissions
+cd permissions
+touch secret.txt
+chmod 600 secret.txt
+touch shared.txt
+chmod 664 shared.txt
+touch public.txt
+chmod 777 public.txt
+
+Part D Section 2
+umask
+0022
+touch text.txt
+ls -l
+Vì khi tạo 1 file mới bất kì thì luôn được mặc định là 666 (nghĩa là tất cả mọi người đều có thể đọc và viết), nhưng ở đây umask là 0022 thì quyền mới sau khi tạo file là 666-022=644 (nghĩa là chủ có thể đọc và viết còn nhóm và những người còn lại chỉ có thể đọc)
